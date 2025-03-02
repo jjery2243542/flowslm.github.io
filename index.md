@@ -1,6 +1,6 @@
 ## <center> UniWav: Towards Unified Pre-training for Speech Representation Learning and Generation </center>
 
-<center> Anonymous submission to ICLR 2025 </center> 
+<center> ICLR 2025 </center> 
 
 
 
