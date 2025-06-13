@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flow-SLM: Joint Learning of Linguistic and Acoustic Information for Spoken Language Modeling</title>
+  <style>
+    .scroll-box {
+      max-height: 400px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 8px;
+    }
+    table.audio-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+    }
+    table.audio-table th, table.audio-table td {
+      border: 1px solid #ddd;
+      padding: 4px;
+      vertical-align: middle;
+    }
+    table.audio-table th {
+      background-color: #f2f2f2;
+    }
+    .center {
+      text-align: center;
+    }
+    .left {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h2 class="center">Flow-SLM: Joint Learning of Linguistic and Acoustic Information for Spoken Language Modeling</h2>
+
+  <div class="center">
+    <span>Ju-Chieh Chou<sup>1</sup></span>, 
+    <span>Jiawei Zhou<sup>2</sup></span>, 
+    <span>Karen Livescu<sup>1</sup></span>
+    <br>
+    <span><sup>1</sup>Toyota Technological Institute at Chicago</span>, 
+    <span><sup>2</sup>Stony Brook University</span>
+    <br>
+    <b><a href="https://arxiv.org/abs/2406.02413" target="_blank">arxiv</a></b>
+  </div>
+
+  <br>
+
+  <h3 class="center">Audio Samples</h3>
+
+  <div class="left">
+    Samples are randomly selected from LibriSpeech test-clean subset. First 3 seconds of the ground truth are used as audio prompt to generate 10 seconds of speech.
+  </div>
+
+  <br>
+
+  <h3 class="center">Prompted generation</h3>
+
+  <div class="scroll-box">
+    <table class="audio-table">
+      <thead>
+        <tr>
+          <th>Ground Truth</th>
+          <th>Resynethis</th>
+          <th>Prompts</th>
+          <th>Continuations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><audio src="samples/ground_truth/00.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/resynth/00.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/prompts/00.wav" controls style="width:200px;"></audio></td>
+          <td>
+            <audio src="samples/continuations/00_00.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/00_01.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/00_02.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/00_03.wav" controls style="width:200px;"></audio>
+          </td>
+        </tr>
+        <tr>
+          <td><audio src="samples/ground_truth/169.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/resynth/169.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/prompts/169.wav" controls style="width:200px;"></audio></td>
+          <td>
+            <audio src="samples/continuations/169_00.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/169_01.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/169_02.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/169_03.wav" controls style="width:200px;"></audio>
+          </td>
+        </tr>
+        <tr>
+          <td><audio src="samples/ground_truth/180.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/resynth/180.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/prompts/180.wav" controls style="width:200px;"></audio></td>
+          <td>
+            <audio src="samples/continuations/180_00.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/180_01.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/180_02.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/180_03.wav" controls style="width:200px;"></audio>
+          </td>
+        </tr>
+        <tr>
+          <td><audio src="samples/ground_truth/219.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/resynth/219.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/prompts/219.wav" controls style="width:200px;"></audio></td>
+          <td>
+            <audio src="samples/continuations/219_00.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/219_01.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/219_02.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/219_03.wav" controls style="width:200px;"></audio>
+          </td>
+        </tr>
+        <tr>
+          <td><audio src="samples/ground_truth/280.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/resynth/280.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/prompts/280.wav" controls style="width:200px;"></audio></td>
+          <td>
+            <audio src="samples/continuations/280_00.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/280_01.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/280_02.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/280_03.wav" controls style="width:200px;"></audio>
+          </td>
+        </tr>
+        <tr>
+          <td><audio src="samples/ground_truth/281.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/resynth/281.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/prompts/281.wav" controls style="width:200px;"></audio></td>
+          <td>
+            <audio src="samples/continuations/281_00.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/281_01.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/281_02.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/281_03.wav" controls style="width:200px;"></audio>
+          </td>
+        </tr>
+        <tr>
+          <td><audio src="samples/ground_truth/386.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/resynth/386.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/prompts/386.wav" controls style="width:200px;"></audio></td>
+          <td>
+            <audio src="samples/continuations/386_00.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/386_01.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/386_02.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/386_03.wav" controls style="width:200px;"></audio>
+          </td>
+        </tr>
+        <tr>
+          <td><audio src="samples/ground_truth/478.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/resynth/478.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/prompts/478.wav" controls style="width:200px;"></audio></td>
+          <td>
+            <audio src="samples/continuations/478_00.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/478_01.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/478_02.wav" controls style="width:200px;"></audio><br>
+            <audio src="samples/continuations/478_03.wav" controls style="width:200px;"></audio>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+
+  <h3 class="center">Unprompted generation</h3>
+
+  <div class="scroll-box" style="display: flex; justify-content: center;">
+    <table>
+      <tr>
+        <td><audio src="samples/unprompted/00.wav" controls style="width:200px;"></audio></td>
+        <td><audio src="samples/unprompted/01.wav" controls style="width:200px;"></audio></td>
+        <td><audio src="samples/unprompted/02.wav" controls style="width:200px;"></audio></td>
+      </tr>
+      <tr>
+        <td><audio src="samples/unprompted/03.wav" controls style="width:200px;"></audio></td>
+        <td><audio src="samples/unprompted/04.wav" controls style="width:200px;"></audio></td>
+        <td><audio src="samples/unprompted/05.wav" controls style="width:200px;"></audio></td>
+      </tr>
+      <tr>
+        <td><audio src="samples/unprompted/06.wav" controls style="width:200px;"></audio></td>
+        <td><audio src="samples/unprompted/07.wav" controls style="width:200px;"></audio></td>
+        <td><audio src="samples/unprompted/08.wav" controls style="width:200px;"></audio></td>
+      </tr>
+      <tr>
+        <td><audio src="samples/unprompted/09.wav" controls style="width:200px;"></audio></td>
+        <td><audio src="samples/unprompted/10.wav" controls style="width:200px;"></audio></td>
+        <td><audio src="samples/unprompted/11.wav" controls style="width:200px;"></audio></td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
