@@ -3,26 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <title>Flow-SLM: Joint Learning of Linguistic and Acoustic Information for Spoken Language Modeling</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" rel="stylesheet">
   <style>
-    .scroll-box {
-      max-height: 400px;
-      overflow-y: auto;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      padding: 8px;
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
+      margin: 0;
+      padding: 0;
+      color: #222;
     }
-    table.audio-table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: center;
+    h2, h3 {
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      margin-top: 32px;
+      margin-bottom: 12px;
     }
-    table.audio-table th, table.audio-table td {
-      border: 1px solid #ddd;
-      padding: 4px;
-      vertical-align: middle;
+    h2.center {
+      font-size: 2.1rem;
+      color: #2a3a5a;
+      margin-top: 36px;
+      margin-bottom: 18px;
+      text-shadow: 0 2px 8px #e0e7ef;
     }
-    table.audio-table th {
-      background-color: #f2f2f2;
+    h3.center {
+      font-size: 1.3rem;
+      color: #3a4a6a;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      text-shadow: 0 1px 4px #e0e7ef;
     }
     .center {
       text-align: center;
@@ -30,31 +38,172 @@
     .left {
       text-align: left;
     }
+    .author-block {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(60,80,120,0.07);
+      display: inline-block;
+      padding: 18px 32px 14px 32px;
+      margin: 0 auto 18px auto;
+    }
+    .author-block span {
+      font-size: 1.05em;
+      color: #2a3a5a;
+    }
+    .author-block a {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .author-block a:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+    .info-box {
+      background: #f1f5fa;
+      border-left: 4px solid #3b82f6;
+      border-radius: 6px;
+      padding: 12px 18px;
+      margin: 0 auto 18px auto;
+      max-width: 700px;
+      font-size: 1.05em;
+      color: #2a3a5a;
+    }
+    .scroll-box {
+      max-height: 400px;
+      overflow-y: auto;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 12px;
+      background: #f8fafc;
+      box-shadow: 0 2px 12px rgba(60,80,120,0.06);
+      margin: 0 auto 24px auto;
+      max-width: 1100px;
+    }
+    table.audio-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      text-align: center;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 6px rgba(60,80,120,0.04);
+    }
+    table.audio-table th, table.audio-table td {
+      border: 1px solid #e5e7eb;
+      padding: 8px 4px;
+      vertical-align: middle;
+    }
+    table.audio-table th {
+      background-color: #e0e7ef;
+      color: #2a3a5a;
+      font-weight: 600;
+      font-size: 1.05em;
+      letter-spacing: 0.01em;
+    }
+    table.audio-table td {
+      background: #f9fafb;
+    }
+    table.audio-table tr:nth-child(even) td {
+      background: #f3f6fa;
+    }
+    audio {
+      outline: none;
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(60,80,120,0.07);
+      background: #f1f5fa;
+      margin-bottom: 4px;
+    }
+    /* Unprompted table style */
+    .unprompted-box {
+      max-height: 400px;
+      overflow-y: auto;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 12px;
+      background: #f8fafc;
+      box-shadow: 0 2px 12px rgba(60,80,120,0.06);
+      max-width: 860px;
+      margin: 0 auto 32px auto;
+    }
+    .unprompted-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 6px rgba(60,80,120,0.04);
+    }
+    .unprompted-table td {
+      padding: 12px 8px;
+      text-align: center;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+    }
+    .unprompted-table tr:nth-child(even) td {
+      background: #f3f6fa;
+    }
+    @media (max-width: 900px) {
+      .scroll-box, .unprompted-box {
+        max-width: 98vw;
+        padding: 4vw 1vw;
+      }
+      table.audio-table, .unprompted-table {
+        font-size: 0.97em;
+      }
+      audio {
+        width: 98vw !important;
+        max-width: 180px !important;
+      }
+    }
+    @media (max-width: 600px) {
+      h2.center {
+        font-size: 1.2rem;
+      }
+      h3.center {
+        font-size: 1rem;
+      }
+      .author-block {
+        padding: 10px 4vw 8px 4vw;
+        font-size: 0.97em;
+      }
+      .info-box {
+        font-size: 0.97em;
+        padding: 8px 2vw;
+      }
+      .scroll-box, .unprompted-box {
+        padding: 2vw 0.5vw;
+      }
+      audio {
+        width: 98vw !important;
+        max-width: 120px !important;
+      }
+    }
   </style>
 </head>
 <body>
   <h2 class="center">Flow-SLM: Joint Learning of Linguistic and Acoustic Information for Spoken Language Modeling</h2>
 
-  <div class="center">
-    <span>Ju-Chieh Chou<sup>1</sup></span>, 
-    <span>Jiawei Zhou<sup>2</sup></span>, 
-    <span>Karen Livescu<sup>1</sup></span>
-    <br>
-    <span><sup>1</sup>Toyota Technological Institute at Chicago</span>, 
-    <span><sup>2</sup>Stony Brook University</span>
-    <br>
-    <b><a href="https://arxiv.org/abs/2406.02413" target="_blank">arxiv</a></b>
+  <div style="display: flex; justify-content: center;">
+    <div class="author-block" style="text-align: center;">
+      <span>Ju-Chieh Chou<sup>1</sup></span>, 
+      <span>Jiawei Zhou<sup>2</sup></span>, 
+      <span>Karen Livescu<sup>1</sup></span>
+      <br>
+      <span><sup>1</sup>Toyota Technological Institute at Chicago</span>, 
+      <span><sup>2</sup>Stony Brook University</span>
+      <br>
+      <b><a href="https://arxiv.org/abs/2406.02413" target="_blank">arxiv</a></b>
+    </div>
   </div>
 
-  <br>
-
-  <h3 class="center">Audio Samples</h3>
-
-  <div class="left">
+  <div class="info-box left">
     Samples are randomly selected from LibriSpeech test-clean subset. First 3 seconds of the ground truth are used as audio prompt to generate 10 seconds of speech.
   </div>
-
-  <br>
 
   <h3 class="center">Prompted generation</h3>
 
@@ -161,32 +310,30 @@
     </table>
   </div>
 
-  <br>
-
   <h3 class="center">Unprompted generation</h3>
 
-  <div class="scroll-box" style="display: flex; justify-content: center;">
-    <table>
-      <tr>
-        <td><audio src="samples/unprompted/00.wav" controls style="width:200px;"></audio></td>
-        <td><audio src="samples/unprompted/01.wav" controls style="width:200px;"></audio></td>
-        <td><audio src="samples/unprompted/02.wav" controls style="width:200px;"></audio></td>
-      </tr>
-      <tr>
-        <td><audio src="samples/unprompted/03.wav" controls style="width:200px;"></audio></td>
-        <td><audio src="samples/unprompted/04.wav" controls style="width:200px;"></audio></td>
-        <td><audio src="samples/unprompted/05.wav" controls style="width:200px;"></audio></td>
-      </tr>
-      <tr>
-        <td><audio src="samples/unprompted/06.wav" controls style="width:200px;"></audio></td>
-        <td><audio src="samples/unprompted/07.wav" controls style="width:200px;"></audio></td>
-        <td><audio src="samples/unprompted/08.wav" controls style="width:200px;"></audio></td>
-      </tr>
-      <tr>
-        <td><audio src="samples/unprompted/09.wav" controls style="width:200px;"></audio></td>
-        <td><audio src="samples/unprompted/10.wav" controls style="width:200px;"></audio></td>
-        <td><audio src="samples/unprompted/11.wav" controls style="width:200px;"></audio></td>
-      </tr>
+  <div class="unprompted-box">
+    <table class="unprompted-table">
+      <tbody>
+        <tr>
+          <td><audio src="samples/unprompted/00.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/unprompted/01.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/unprompted/02.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/unprompted/03.wav" controls style="width:200px;"></audio></td>
+        </tr>
+        <tr>
+          <td><audio src="samples/unprompted/04.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/unprompted/05.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/unprompted/06.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/unprompted/07.wav" controls style="width:200px;"></audio></td>
+        </tr>
+        <tr>
+          <td><audio src="samples/unprompted/08.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/unprompted/09.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/unprompted/10.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/unprompted/11.wav" controls style="width:200px;"></audio></td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </body>
