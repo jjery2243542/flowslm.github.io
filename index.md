@@ -1,4 +1,5 @@
-## <div align="center">Flow-SLM: Joint Learning of Linguistic and Acoustic Information for Spoken Language Modeling</div>
+## 
+<div align="center">Flow-SLM: Joint Learning of Linguistic and Acoustic Information for Spoken Language Modeling</div>
 
 <div align="center">
   Ju-Chieh Chou, Jiawei Zhou, Karen Livescu
@@ -8,11 +9,13 @@
 
 <div align="center"></div>
 
-### <div align="center">Audio Samples</div>
+### 
+<div align="center">Audio Samples</div>
 
 <div align="left">Samples are randomly selected from LibriSpeech test-clean subset. First 3 seconds of the ground truth are used as audio prompt to generate 10 seconds of speech. </div>
 
-### <div align="center">Prompted generation</div>
+### 
+<div align="center">Prompted generation</div>
 
 <div style="max-height: 400px; overflow-y: auto; border: 1px solid #ccc; border-radius: 6px; padding: 8px;">
   
@@ -52,7 +55,8 @@
 | | | | <audio src="samples/continuations/478_03.wav" controls style="width:200px;"></audio> | 
 </div>
 
-### <div align="center">Unprompted generation</div>
+### 
+<div align="center">Unprompted generation</div>
 
 <div style="max-height: 400px; overflow-y: auto; border: 1px solid #ccc; border-radius: 6px; padding: 8px;">
   <div align="center">
