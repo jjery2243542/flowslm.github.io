@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Flow-SLM: Joint Learning of Linguistic and Acoustic Information for Spoken Language Modeling</title>
+  <title>Flow-SLM: 
+    Joint Learning of Linguistic and Acoustic Information for Spoken Language Modeling
+  </title>
   <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -116,6 +118,15 @@
       background: #f1f5fa;
       margin-bottom: 4px;
     }
+    .audio-duration {
+      display: block;
+      font-size: 0.95em;
+      color: #555;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      text-align: center;
+      min-height: 1.2em;
+    }
     /* Unprompted table style */
     .unprompted-box {
       max-height: 400px;
@@ -184,6 +195,47 @@
       }
     }
   </style>
+  <script>
+    // Helper to format seconds as mm:ss.s
+    function formatDuration(seconds) {
+      if (isNaN(seconds)) return '';
+      const m = Math.floor(seconds / 60);
+      const s = seconds % 60;
+      return m + ':' + (s < 10 ? '0' : '') + s.toFixed(2);
+    }
+
+    // On DOMContentLoaded, attach listeners to all audio elements
+    document.addEventListener('DOMContentLoaded', function() {
+      function setDuration(audio, span) {
+        if (audio.duration && !isNaN(audio.duration)) {
+          span.textContent = formatDuration(audio.duration) + 's';
+        }
+      }
+      // For every audio element, insert a span after it for duration
+      document.querySelectorAll('audio').forEach(function(audio) {
+        // Create or find the duration span
+        let span = document.createElement('span');
+        span.className = 'audio-duration';
+        span.textContent = '';
+        // Insert after audio
+        if (audio.nextSibling) {
+          audio.parentNode.insertBefore(span, audio.nextSibling);
+        } else {
+          audio.parentNode.appendChild(span);
+        }
+        // If already loaded, set duration
+        if (audio.readyState >= 1) setDuration(audio, span);
+        // Listen for loadedmetadata
+        audio.addEventListener('loadedmetadata', function() {
+          setDuration(audio, span);
+        });
+        // If duration changes (e.g. src changes)
+        audio.addEventListener('durationchange', function() {
+          setDuration(audio, span);
+        });
+      });
+    });
+  </script>
 </head>
 <body>
   <h2 class="center">Flow-SLM: Joint Learning of Linguistic and Acoustic Information for Spoken Language Modeling</h2>
