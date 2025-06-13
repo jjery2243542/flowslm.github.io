@@ -1,33 +1,84 @@
-## <center> UniWav: Towards Unified Pre-training for Speech Representation Learning and Generation </center>
+## <div align="center">Flow-SLM: Joint Learning of Linguistic and Acoustic Information for Spoken Language Modeling</div>
 
-<center> ICLR 2025 </center> 
+<div align="center">
+  Ju-Chieh Chou, Jiawei Zhou, Karen Livescu
+  <br>
+  <b><a href="https://arxiv.org/abs/2406.02413" target="_blank">arxiv</a></b>
+</div>
+
+<div align="center"></div>
+
+### <div align="center">Audio Samples</div>
+
+<div align="left">Samples are randomly selected from LibriSpeech test-clean subset. First 3 seconds of the ground truth are used as audio prompt to generate 10 seconds of speech. </div>
+
+### <div align="center">Prompted generation</div>
+
+<div style="max-height: 400px; overflow-y: auto; border: 1px solid #ccc; border-radius: 6px; padding: 8px;">
+  
+| Ground Truth | Resynethis | Prompts | Continuations |
+| :---: | :---: | :---: | :---: |
+| <audio src="samples/ground_truth/00.wav" controls style="width:200px;"></audio> | <audio src="samples/resynth/00.wav" controls style="width:200px;"></audio> | <audio src="samples/prompts/00.wav" controls style="width:200px;"></audio> | <audio src="samples/continuations/00_00.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/00_01.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/00_02.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/00_03.wav" controls style="width:200px;"></audio> | 
+| <audio src="samples/ground_truth/169.wav" controls style="width:200px;"></audio> | <audio src="samples/resynth/169.wav" controls style="width:200px;"></audio> | <audio src="samples/prompts/169.wav" controls style="width:200px;"></audio> | <audio src="samples/continuations/169_00.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/169_01.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/169_02.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/169_03.wav" controls style="width:200px;"></audio> | 
+| <audio src="samples/ground_truth/180.wav" controls style="width:200px;"></audio> | <audio src="samples/resynth/180.wav" controls style="width:200px;"></audio> | <audio src="samples/prompts/180.wav" controls style="width:200px;"></audio> | <audio src="samples/continuations/180_00.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/180_01.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/180_02.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/180_03.wav" controls style="width:200px;"></audio> | 
+| <audio src="samples/ground_truth/219.wav" controls style="width:200px;"></audio> | <audio src="samples/resynth/219.wav" controls style="width:200px;"></audio> | <audio src="samples/prompts/219.wav" controls style="width:200px;"></audio> | <audio src="samples/continuations/219_00.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/219_01.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/219_02.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/219_03.wav" controls style="width:200px;"></audio> | 
+| <audio src="samples/ground_truth/280.wav" controls style="width:200px;"></audio> | <audio src="samples/resynth/280.wav" controls style="width:200px;"></audio> | <audio src="samples/prompts/280.wav" controls style="width:200px;"></audio> | <audio src="samples/continuations/280_00.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/280_01.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/280_02.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/280_03.wav" controls style="width:200px;"></audio> | 
+| <audio src="samples/ground_truth/281.wav" controls style="width:200px;"></audio> | <audio src="samples/resynth/281.wav" controls style="width:200px;"></audio> | <audio src="samples/prompts/281.wav" controls style="width:200px;"></audio> | <audio src="samples/continuations/281_00.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/281_01.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/281_02.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/281_03.wav" controls style="width:200px;"></audio> | 
+| <audio src="samples/ground_truth/386.wav" controls style="width:200px;"></audio> | <audio src="samples/resynth/386.wav" controls style="width:200px;"></audio> | <audio src="samples/prompts/386.wav" controls style="width:200px;"></audio> | <audio src="samples/continuations/386_00.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/386_01.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/386_02.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/386_03.wav" controls style="width:200px;"></audio> | 
+| <audio src="samples/ground_truth/478.wav" controls style="width:200px;"></audio> | <audio src="samples/resynth/478.wav" controls style="width:200px;"></audio> | <audio src="samples/prompts/478.wav" controls style="width:200px;"></audio> | <audio src="samples/continuations/478_00.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/478_01.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/478_02.wav" controls style="width:200px;"></audio> | 
+| | | | <audio src="samples/continuations/478_03.wav" controls style="width:200px;"></audio> | 
+</div>
+
+### <div align="center">Unprompted generation</div>
+
+<div style="max-height: 400px; overflow-y: auto; border: 1px solid #ccc; border-radius: 6px; padding: 8px;">
+  <div align="center">
+    <table>
+      <tr>
+        <td><audio src="samples/unprompted/00.wav" controls style="width:200px;"></audio></td>
+        <td><audio src="samples/unprompted/01.wav" controls style="width:200px;"></audio></td>
+        <td><audio src="samples/unprompted/02.wav" controls style="width:200px;"></audio></td>
+      </tr>
+      <tr>
+        <td><audio src="samples/unprompted/03.wav" controls style="width:200px;"></audio></td>
+        <td><audio src="samples/unprompted/04.wav" controls style="width:200px;"></audio></td>
+        <td><audio src="samples/unprompted/05.wav" controls style="width:200px;"></audio></td>
+      </tr>
+      <tr>
+        <td><audio src="samples/unprompted/06.wav" controls style="width:200px;"></audio></td>
+        <td><audio src="samples/unprompted/07.wav" controls style="width:200px;"></audio></td>
+        <td><audio src="samples/unprompted/08.wav" controls style="width:200px;"></audio></td>
+      </tr>
+      <tr>
+        <td><audio src="samples/unprompted/09.wav" controls style="width:200px;"></audio></td>
+        <td><audio src="samples/unprompted/10.wav" controls style="width:200px;"></audio></td>
+        <td><audio src="samples/unprompted/11.wav" controls style="width:200px;"></audio></td>
+      </tr>
+    </table>
+  </div>
+</div>
 
 
-
-### <center> Audio Samples </center>
-
-<center> !!! Wearing headphones is strongly recommended to judge the audio quality !!! </center>
-
-
-### <center> Speech Tokenization & Resynthesis </center>
-<center> Samples are randomly selected from LibriSpeech test-clean subset. </center>
-
-| <span style="width:300px;"></span> |  |  |  |  |  |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-| Ground Truth<br>256k bps | <audio src="samples/resyn/gt/8463-287645-0001.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/gt/2094-142345-0040.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/gt/4446-2273-0008.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/gt/1995-1837-0028.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/gt/61-70968-0026.wav" controls style="width:200px;" preload></audio> |
-| SpeechTokenizer<br>500 bps | <audio src="samples/resyn/sptk500/8463-287645-0001.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/sptk500/2094-142345-0040.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/sptk500/4446-2273-0008.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/sptk500/1995-1837-0028.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/sptk500/61-70968-0026.wav" controls style="width:200px;" preload></audio> |
-| HuBERT + Unit-HiFiGAN<br>500 bps | <audio src="samples/resyn/unitgan/8463-287645-0001.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/unitgan/2094-142345-0040.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/unitgan/4446-2273-0008.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/unitgan/1995-1837-0028.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/unitgan/61-70968-0026.wav" controls style="width:200px;" preload></audio> |
-| UniWav<br>500 bps | <audio src="samples/resyn/uniwav500/8463-287645-0001.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/uniwav500/2094-142345-0040.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/uniwav500/4446-2273-0008.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/uniwav500/1995-1837-0028.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/uniwav500/61-70968-0026.wav" controls style="width:200px;" preload></audio> |
-| SpeechTokenizer<br>1k bps | <audio src="samples/resyn/sptk1k/8463-287645-0001.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/sptk1k/2094-142345-0040.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/sptk1k/4446-2273-0008.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/sptk1k/1995-1837-0028.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/sptk1k/61-70968-0026.wav" controls style="width:200px;" preload></audio> |
-| UniWav<br>1k bps | <audio src="samples/resyn/uniwav1k/8463-287645-0001.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/uniwav1k/2094-142345-0040.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/uniwav1k/4446-2273-0008.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/uniwav1k/1995-1837-0028.wav" controls style="width:200px;" preload></audio> | <audio src="samples/resyn/uniwav1k/61-70968-0026.wav" controls style="width:200px;" preload></audio> |
-
-### <center> In-context Text-to-Speech </center>
-<center> Samples are randomly selected from LibriSpeech test-clean subset. First 3 seconds of the ground truth are used as audio prompt. </center>
-
-| <span style="width:1000px;">Text</span> | UniWav | Ground Truth |
-| :---: | :---: | :---: |
-| on arriving at home at my own residence i found that our salon was filled with a brilliant company | <audio src="samples/tts/uniwav/8455-210777-0002.wav" controls style="width:200px;" preload></audio> | <audio src="samples/tts/gt/8455-210777-0002.wav" controls style="width:200px;" preload></audio> |
-| at the inception of plural marriage among the latter day saints there was no law national or state against its practise | <audio src="samples/tts/uniwav/4077-13754-0009.wav" controls style="width:200px;" preload></audio> | <audio src="samples/tts/gt/4077-13754-0009.wav" controls style="width:200px;" preload></audio> |
-| we are losing time and the fact is i have not come all this way to take a little sail upon a pond on a raft | <audio src="samples/tts/uniwav/260-123286-0006.wav" controls style="width:200px;" preload></audio> | <audio src="samples/tts/gt/260-123286-0006.wav" controls style="width:200px;" preload></audio> |
-| it was the first great sorrow of his life it was not so much the loss of the cotton itself but the fantasy the hopes the dreams built around it | <audio src="samples/tts/uniwav/1995-1837-0001.wav" controls style="width:200px;" preload></audio> | <audio src="samples/tts/gt/1995-1837-0001.wav" controls style="width:200px;" preload></audio> |
-| for some years it was not found feasible to operate motors on alternating current circuits and that reason was often urged against it seriously | <audio src="samples/tts/uniwav/2300-131720-0009.wav" controls style="width:200px;" preload></audio> | <audio src="samples/tts/gt/2300-131720-0009.wav" controls style="width:200px;" preload></audio> |
