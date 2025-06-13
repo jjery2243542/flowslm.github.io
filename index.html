@@ -208,7 +208,7 @@
   <h3 class="center">Prompted generation</h3>
 
   <div class="scroll-box">
-    <table class="audio-table">
+    <table class="audio-table" style="border-collapse:collapse; width:100%;">
       <thead>
         <tr>
           <th>Ground Truth</th>
@@ -217,8 +217,10 @@
           <th>Continuations</th>
         </tr>
       </thead>
-      <tbody>
-        <!-- First row: not scrollable, stays visible -->
+    </table>
+    <div style="max-height:340px; overflow-y:auto;">
+      <table class="audio-table" style="border-collapse:collapse; width:100%;">
+        <tbody>
         <tr>
           <td><audio src="samples/ground_truth/00.wav" controls style="width:200px;"></audio></td>
           <td><audio src="samples/resynth/00.wav" controls style="width:200px;"></audio></td>
@@ -230,11 +232,6 @@
             <audio src="samples/continuations/00_03.wav" controls style="width:200px;"></audio>
           </td>
         </tr>
-      </tbody>
-    </table>
-    <div style="max-height:340px; overflow-y:auto;">
-      <table class="audio-table" style="border-collapse:collapse; width:100%;">
-        <tbody>
           <tr>
             <td><audio src="samples/ground_truth/169.wav" controls style="width:200px;"></audio></td>
             <td><audio src="samples/resynth/169.wav" controls style="width:200px;"></audio></td>
