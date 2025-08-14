@@ -136,7 +136,7 @@
       <span><sup>1</sup>Toyota Technological Institute at Chicago</span>, 
       <span><sup>2</sup>Stony Brook University</span>
       <br>
-      <b><a href="https://arxiv.org/abs/2406.02413" target="_blank">arxiv</a></b>
+      <b><a href="https://arxiv.org/abs/2508.09350" target="_blank">arxiv</a></b>
     </div>
 
     <h3>Audio Samples</h3>
