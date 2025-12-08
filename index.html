@@ -206,6 +206,37 @@
     We use Flow-SLM-1B-extend to generate demos. Prompts are randomly selected from LibriSpeech test-clean and test-other subsets. First 3 seconds of the ground truth are used as audio prompt to generate 10 seconds of speech. The comparison with AudioLM uses the same prompts and generation settings.
   </div>
 
+  <h3 class="center">Prosodic prompts</h3>
+
+  <div class="scroll-box">
+    <table class="audio-table" style="border-collapse:collapse; width:100%;">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Prompt</th>
+          <th>Continuation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Happy</td>
+          <td><audio src="samples/demo/happy_prompt.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/demo/happy_continuation.wav" controls style="width:200px;"></audio></td>
+        </tr>
+        <tr>
+          <td>Sorry</td>
+          <td><audio src="samples/demo/sorry_prompt.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/demo/sorry_continuation.wav" controls style="width:200px;"></audio></td>
+        </tr>
+        <tr>
+          <td>Whisper</td>
+          <td><audio src="samples/demo/whisper_prompt.wav" controls style="width:200px;"></audio></td>
+          <td><audio src="samples/demo/whisper_continuation.wav" controls style="width:200px;"></audio></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
   <h3 class="center">Prompted generation</h3>
 
   <div class="scroll-box">
